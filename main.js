@@ -1,6 +1,6 @@
 import { Observable } from "rxjs/Observable";
-import { interval } from "rxjs/add/observable/interval";
+import { timer } from "rxjs/add/observable/timer";
 
 const log = val => console.log(val);
-Observable.interval(1000).subscribe(log);
-//MouseEvent
+Observable.timer(500, 500).subscribe(log);
+//if initial delay set to 0, it will emit value immediately
