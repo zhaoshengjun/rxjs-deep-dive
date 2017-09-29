@@ -1,18 +1,6 @@
 import { Observable } from "rxjs/Observable";
-// import { of } from "rxjs/add/observable/of";
-import { from } from "rxjs/add/observable/from";
+import { fromEvent } from "rxjs/add/observable/fromEvent";
 
-const log = val => console.log(val + "!");
-
-// of
-// Observable.of("React", "Angular 2", "Meteor").subscribe(log);
-// React
-// Angular 2
-// Meteor
-
-// from
-Observable.from(["poe", "shlley", "bronte", "eliot"]).subscribe(log);
-// poe
-// shlley
-// bronte
-// eliot
+const log = val => console.log(val);
+Observable.fromEvent(document, "click").subscribe(log);
+//MouseEvent
