@@ -1,6 +1,5 @@
 import { Observable } from "rxjs/Observable";
-import { timer } from "rxjs/add/observable/timer";
+import { range } from "rxjs/add/observable/range";
 
 const log = val => console.log(val);
-Observable.timer(500, 500).subscribe(log);
-//if initial delay set to 0, it will emit value immediately
+Observable.range(42, 10).subscribe(log);
