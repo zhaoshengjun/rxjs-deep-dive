@@ -1,5 +1,11 @@
 import { Observable } from "rxjs/Observable";
-import { range } from "rxjs/add/observable/range";
+import { bindCallback } from "rxjs/add/observable/bindCallback";
 
 const log = val => console.log(val);
-Observable.range(42, 10).subscribe(log);
+
+const fetch = (url, callback) => {
+  callback("data");
+};
+
+const rxFetch = Observable.bindCallback(fetch);
+rxFetch("url").subscribe(log);
