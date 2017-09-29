@@ -1,12 +1,12 @@
 // import Rx from "rxjs/Rx";
 import { Observable } from "rxjs/Observable";
+import "rxjs/add/operator/map";
 
 // Observerable
 let obs1 = Observable.create(sub => {
-  sub.next("new data");
-  sub.next("new data 2");
-  // sub.error("error");
-  sub.next("new data 3");
+  sub.next(1);
+  sub.next(2);
+  sub.next(3);
   sub.complete();
 });
 
@@ -17,3 +17,7 @@ obs1.subscribe({
   error: console.error,
   complete: () => console.log("done")
 });
+
+// Operator
+let obs2 = obs1.map(x => x + 100);
+obs2.subscribe(console.log);
